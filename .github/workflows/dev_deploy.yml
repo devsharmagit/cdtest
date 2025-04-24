@@ -1,0 +1,26 @@
+name: Deploy to development EC2 dev branch
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using key
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 54.153.236.149
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+              cd /home/ubuntu/cdtest
+              git checkout dev
+              git pull origin dev
+              source ~/.nvm/nvm.sh
+              nvm use node
+              npm install -g pnpm
+              pnpm install
+              pnpm run build
+              pm2 restart all
