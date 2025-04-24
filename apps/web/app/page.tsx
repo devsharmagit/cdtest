@@ -6,7 +6,7 @@ const user = await client.user.findFirst()
 return <>
 
 <h1>
-  this is going to be the user details page
+  this is dev branch code this is dev branch code
 </h1>
 
 <p>name  2222: {user?.name}</p>
