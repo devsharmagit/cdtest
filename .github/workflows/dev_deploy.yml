@@ -18,9 +18,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /home/ubuntu/cdtest
-            git fetch origin
-            git reset --hard origin/dev
+            cd /home/ubuntu/cdtest-dev
+            git checkout dev
+            git pull origin dev
             source ~/.nvm/nvm.sh
             nvm use node
             npm install -g pnpm
