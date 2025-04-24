@@ -9,7 +9,7 @@ return <>
   this is going to be the user details page
 </h1>
 
-<p>name : {user?.name}</p>
+<p>name  2222: {user?.name}</p>
 <p>email : {user?.email}</p>
 <p>password : {user?.password}</p>
 
